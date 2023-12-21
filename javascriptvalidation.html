@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Validation Form</title>
+</head>
+<body>
+
+    <br>
+    <div class="contact__form" style="display:flex; justify-content: center;">
+        <div>
+        <h1>Register</h1>
+        <br>
+        <h3 id="display-message"></h3>
+        <br>
+        <form name="myForm">
+            <input type="text"  name="name" id="name" style="width:400px; height: 30px;" />
+            <br/>
+            <br/>
+            <br>
+            <input type="email"  name="email" id="email" style="width:400px; height: 30px;">
+            <br/>
+            <br/>
+            <br>
+            <input type="password"  name="password" id="password" style="width:400px; height: 30px;">
+            <br/>
+            <br/>
+            <br>
+            <select name="" id="selectItem" style="width:100px; height: 30px;">
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <br>
+            <br/>
+            <input type="submit" class="site-btn"  onClick="validateForm(event)" value="submit">
+        </form>
+     </div>
+    </div>
+    <script>
+        function validateForm(event){
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var selectItem = document.getElementById('selectItem').value;
+            var displayMessage = document.getElementById('display-message');
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/;
+            //var alphanumeric = replace(/[^a-zA-Z0-9\s]/g, '');
+            var alphanumericspecial = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?\\/`-]+$/;
+            displayMessage.innerHTML = "";
+
+
+            if(name == ""){
+                displayMessage.innerHTML += 'Please enter a name';
+            }else if(email == ""){
+                displayMessage.innerHTML += "Please enter an email";
+            }else if(password == ""){
+                displayMessage.innerHTML += 'Please enter a password';
+            }else if(selectItem == ""){
+                displayMessage.innerHTML += 'Please select a gender';  
+            }else if(!email.match(validRegex)){
+                displayMessage.innerHTML += 'Please, enter a valid email';                 
+            }else if(!password.alphanumericspecial){
+                displayMessage.innerHTML += 'input should contain alphabert, number and special characters';    
+            }else if(password.length < 6 || password.length > 12){
+                displayMessage.innerHTML += 'Please your password should not be Less than six characters or greater than 12 characters';    
+            }else{
+                displayMessage.innerHTML += 'Your input has been submitted successfully';         
+            }
+        }
+
+//Assignment
+//Create a validation form with document.form on input, select, checkbox and radio button
+    </script>
+</body>
+</html>

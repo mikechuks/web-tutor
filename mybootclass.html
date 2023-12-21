@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bootstrap</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!--start NavBar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+      </nav>
+    <!--end NavBar-->
+    <!-- start hero section-->
+      <section class="bg-dark text-white">
+        <div class="container py-5 d-md-flex justify-content-between align-items-center">
+            <div class="py-5">
+            <h1 class="">Become a Web Developer</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque aspernatur facilis, provident nam dicta dolores. Mollitia eius, aliquid, dicta quia amet aliquam incidunt doloribus ex omnis, enim harum earum.
+            </p>
+            <a class="btn btn-primary btn-lg">Contact Us</a>
+            </div>
+            <div>
+                <img src="5.jpg" class="img-fluid" width="1000"/>
+            </div>
+        </div>
+      </section>
+    <!-- end hero section-->
+    <!-- Start News letter-->
+      <section class="bg-primary text-white text-center">
+        <div class="container d-md-flex justify-content-center align-items-center py-5">
+            <h1>Sign Up for Newsletter</h1>
+            <div class="input-group">
+                <input type="text" class="form-control"/>
+                <button class="btn btn-dark">Discover</button>
+            </div>
+        </div>
+      </section>
+    <!-- End News letter-->
+    <!-- start service section -->
+      <section class="">
+        <div class="container py-5">
+          <div class="row g-3">
+            <div class="col-md">
+            <div class="card bg-dark p-5" >
+              <div class="card-body text-light text-center p-5">
+                <h2 class="card-title">Web design</h2>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-dark p-5" >
+              <div class="card-body text-light text-center p-5">
+                <h2 class="card-title">Graphics design</h2>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card bg-dark p-5" >
+              <div class="card-body text-light text-center p-5">
+                <h2 class="card-title">UI/UX</h2>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+   <!-- end service section -->
+   <!-- start learn section-->
+      <section class="p-5">
+        <div class="container d-md-flex justify-content-center align-items-center py-5">
+          <div class="p-5">
+              <h1>Learn The Basic</h1>
+              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, nostrum cupiditate. Tempore, aliquid voluptatum ipsa soluta magnam eaque sed dolores id, odio, voluptates vitae incidunt ad nam numquam nihil hic.
+              </p>
+              <a class="btn btn-primary btn-lg"> Learn More</a>
+          </div>
+          <div>
+            <img src="5.jpg" class="img-fluid" width="1000">
+          </div>
+        </div>
+      </section>
+    <!-- end learn section-->
+    <!-- Question section-->
+      <section class="p-5">
+          <div class="container text-center">
+            <h1>Frequent Asked Question</h1>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Accordion Item #1
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Accordion Item #2
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Accordion Item #3
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Accordion Item #4
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Accordion Item #5
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+    <!-- End Question section-->
+    <!-- start Instructuion section -->
+    <section class="p-5 bg-primary">
+      <div class="container py-5 text-center text-white">
+        <h3>Our Instructions</h3>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti consectetur ipsam unde impedit voluptatum, explicabo ullam in distinctio sapiente natus voluptas quia quam odio tenetur animi, tempore molestiae rem ad.</p>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-3">
+            <div class="card" >
+              <div class="card-body">
+                <img src="5.jpg" class="img-fluid rounded-circle" width="150"/>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Read Me</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card" >
+              <div class="card-body">
+                <img src="5.jpg" class="img-fluid rounded-circle" width="150"/>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Read Me</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card" >
+              <div class="card-body">
+                <img src="5.jpg" class="img-fluid rounded-circle" width="150"/>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Read Me</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card" >
+              <div class="card-body">
+                <img src="5.jpg" class="img-fluid rounded-circle" width="150"/>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Read Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--fotter section-->
+    <footer class="p-5 page-footer">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <h5>Logo</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ut dolores, officiis nobis </p>
+        </div>
+        <div class="col-md-3 col-lg-3 mx-auto">
+          <h5>Services</h5>
+          <ul class="list-unstyled">
+            <li>Web Design</li>
+            <li>Graphics Design</li>
+            <li>Data Analist</li>
+            <li>UI/UX</li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <h5>Page Link</h5>
+          <ul class="list-styled">
+            <a><li>Home</li></a>
+            <a><li>About Us</li></a>
+            <a><li>Service</li></a>
+            <a><li>Contac Us</li></a>
+          </ul>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <h5 class="text-uppercase font-weight ">Location</h5>
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt repudiandae quas qui eligendi. .</p>
+          <p>
+            +234 9056 67433
+          </p>
+          <p>
+            info@example.com
+          </p>
+        </div>
+      </div>
+      </div>
+    </footer>
+    <!--Footer Buttom-->
+    <footer class="bg-dark p-3 text-white text-center">
+      <div class="container">
+        <p>Copywright &copy; 2023 Logo</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
