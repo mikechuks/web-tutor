@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: black;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid white;
+        width: 300px;
+        height: 500px;
+        margin: auto;
+    }
+    .hidden-content{
+        color: white;
+        display: none;
+    }
+    p{
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+        margin: 0px 0px 30px 0px;
+    }
+    .reveal-btn{
+        margin:0px 0px 50px 40px;
+        height: 50px;
+        width: 150px;
+        display:block;
+    }
+
+</style>
+<body>
+    <h1 id="main-heading">Event Listeners</h1>
+    <div class="container">
+        <div>
+            <button class="reveal-btn boxes">
+                Reveal More
+            </button>
+            <div class="hidden-content boxes">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia doloribus eaque labore repudiandae et quis aspernatur non nostrum impedit corporis vero aut consequatur, tenetur earum! Vero veritatis quod reprehenderit eaque.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const revealBtn = document.querySelector('.reveal-btn');
+        const hiddenContent = document.querySelector('.hidden-content');
+
+        function revealContent(){
+            if(hiddenContent.classList.contains('reveal-btn')){
+                hiddenContent.classList.remove('reveal-btn'); 
+            }else{
+                hiddenContent.classList.add('reveal-btn');  
+            }
+        }
+        revealBtn.addEventListener('click', revealContent);
+        
+    </script>
+</body>
+</html>

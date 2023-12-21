@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 100vh;
+    }
+    .containerTwo{
+        background-color:blueviolet;
+        border-radius: 5px;
+        width: 500px;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    ul{
+        list-style-type: none;
+    }
+    li{
+        text-decoration: none;
+        width: 350px;
+    }
+    .list-items{
+        background-color:white;
+        margin: 10px;
+        padding:10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    #main-heading{
+        font-size: 30px;
+    }
+    .btn{
+        width: 145px;
+        height: 50px;
+        background-color: blue;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="containerTwo">   
+            <h1 id="list-items1">Favorite Movie Franchise</h1>
+            <p id="output"></p>
+            <ul>
+                <li class="list-items">The Matrix
+                    <span>Neo</span>
+                </li>
+                <li class="list-items">Star Wars</li>
+                <li class="list-items">Harry Potter</li>
+                <li class="list-items">Lord Of The Rings</li>
+                <li class="list-items">Marvel</li>
+            </ul>
+        </div>
+    </div> 
+    <script>
+      //  Class Work
+      //  Using the addEventListener and the document.getElementById, make the "the matrix" background color blue, the "star war" to change to "Avatar", use the setattribute to change the font size of "Harry potter" and create a new element and add it to your favorite movie franchies
+        function myFunction(){
+            document.getElementById('output').innerText = "My Text"; 
+        }
+        document.querySelector('#list-items1').addEventListener('click', myFunction);
+        //document.getElementById
+        //document.getElementByClassName
+        //document.getElementByTagName
+        //document.querySelector
+        //document.querySelectorAll
+        //document.setAttribute
+        //document.getAttribute
+        //document.removeAttribute
+        //document.innerText
+        //document.innerHTML
+        //document.classList.add()
+        //document.classList.remove()
+        //document.parentElement
+        //document.parentNode
+        //document.childNode
+        //document.childeren
+        //document.firstChild
+        //document.lastChild
+        //document.firstElementChild
+        //document.lastElementChild
+        //document.previousSibling
+        //document.previousElementSibling
+        //document.nextElementSibling
+        //document.nextSibling
+        //document.createElement
+        //document.append
+        //const pressKey = document.querySelector('.btn');
+        //function myKeys(e){
+        //    console.log(e.key);
+        //    const firstkey = document.querySelector('.list-items1');
+        //    const seckey = document.querySelector('.list-items2');
+        //    const thirdkey = document.querySelector('.list-items3');
+        //    const fourthkey = document.querySelector('.list-items4');
+        //    if(e.key == "a"){
+        //        firstkey.classList.add("list-items");
+        //    }
+        //    if(e.key == "b"){
+        //        seckey.classList.add("list-items"); 
+        //    }
+        //    if(e.key == "c"){
+        //        thirdkey.classList.add("list-items");
+        //    }
+        //    if(e.key == "d"){
+        //        fourthkey.classList.add("list-items");
+        //    }
+        //    if(e.key == "e"){
+        //        firstkey.classList.remove("list-items");
+        //    }
+        //    if(e.key == "f"){
+        //        seckey.classList.remove("list-items");
+        //    }
+        //    if(e.key == "g"){
+        //        thirdkey.classList.remove("list-items");
+        //    }
+        //    if(e.key == "h"){
+         //       fourthkey.classList.remove("list-items");
+        //    }
+        //}
+        //document.addEventListener('keydown', myKeys)
+
+        //function myEvent(e){
+        //    console.log(e.key)
+        //    var li = document.querySelector('.list-items1');
+        //    var li2 = document.querySelector('.list-items2');
+        //    var li3 = document.querySelector('.list-items3');
+        //    var li4 = document.querySelector('.list-items4');
+        //    if(e.key == "g"){
+        //        li.classList.add('list-items');
+        //    }
+        //    if(e.key == "h"){
+        //        li2.classList.add('list-items');
+        //    }
+        //    if(e.key == "i"){
+        //        li3.classList.add('list-items');
+        //    }
+        //    if(e.key == "v"){
+        //        li4.classList.add('list-items');
+        //    }
+        //}
+        //document.addEventListener('keydown',myEvent);
+    //    var title = document.getElementById('main-heading');
+    //    console.log(title);
+    //    var listItem = document.getElementsByClassName('list-items');
+    //    console.log(listItem);
+    //    var TagItem = document.getElementsByTagName('li');
+    //    console.log(listItem);
+    //    var selector = document.querySelector('#main-heading');
+    //    selector.style.color = 'red';
+    //    const mySelector = document.querySelectorAll('.list-items');
+    //    for(i = 0; i < mySelector.length; i++){
+    //        mySelector[i].style.fontSize = '1.5rem';
+    //    }
+
+    //  Creating Element
+
+     //  var ul = document.querySelector('ul');
+     //  var li = document.createElement('li');
+
+    // Adding Element
+
+     //  ul.append(li);
+
+    //  Modifying Text
+
+     //  li.innerText = 'X-men';
+    // var firstListItem = document.querySelector('.list-items');
+    // console.log(firstListItem.innerText);
+    // console.log(firstListItem.textContent);
+    // console.log(firstListItem.innerHTML);
+
+    //  Modifying Attribute & Classes
+
+    //li.setAttribute('id', 'main-heading');
+    //li.removeAttribute('id');
+    //console.log(li.getAttribute('id'));
+    //li.classList.add('list-items');
+    //li.classList.remove('list-items');
+    //console.log(li.classList.contains('list-items'));
+    
+
+    //  Parent Element and Node
+
+    //var ul = document.querySelector('ul');
+    //console.log(ul.parentNode.parentNode);
+    //console.log(ul.parentElement.parentElement);
+
+    //Child Nodes
+    //console.log(ul.childNodes);
+    //ul.childNodes[2].style.backgroundColor = 'blue';
+    //console.log(ul.firstChild);
+    //console.log(ul.lastChild);
+    //console.log(ul.firstElementChild);
+    //console.log(ul.lastElementChild);
+    //console.log(ul.previousSibling);
+    //console.log(ul.previousElementSibling);
+    //console.log(ul.nextSibling);
+    //console.log(ul.nextElementSibling);    
+    </script>
+</body>
+</html>

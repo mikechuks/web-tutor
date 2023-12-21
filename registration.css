@@ -1,0 +1,92 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+ }
+ .container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 70px 50% 300px;
+    grid-template-areas: 
+    "header "
+    "content"
+    "footer";
+ }
+ .header{
+    grid-area: header;
+    background-color: green;
+    position: relative;
+ }
+ .logo{
+    position: absolute;
+    top: 20%;
+    left: 10px;
+    color: white;
+    font-size: 30px;
+ }
+ ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 60%;
+    display: flex;
+    align-items: center;
+ }
+ li{
+    display: inline;
+    margin:20px;
+ }
+ li a{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+ }
+.content{
+    grid-area: content;
+    background-color: red;
+}
+.formContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.formDivider{
+    margin-left: 50px;
+    margin-right: 50px;  
+}
+.inputElement{
+    width:320px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.radioElement{
+    width: 100px;
+}
+.selectElement{
+    height:50px;
+    width: 200px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.textareaElement{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+.submitButton{
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+}
+.footer{
+    grid-area: footer;
+    background-color: #333333;
+}
