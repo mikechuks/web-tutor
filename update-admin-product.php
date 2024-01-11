@@ -2,33 +2,33 @@
  include("config.php");
  include("./functions/php_functions.php");
  
-function sess(){
-  if(!isset($_SESSION['id'])){
-    echo '<script type="text/javascript">window.open("login.php", "_self")</script>';
-  }else{
-    return false;
-  }
+ function sess(){
+if(!isset($_SESSION['id'])){
+	echo '<script type="text/javascript">window.open("login.php", "_self")</script>';
+}else{
+  return false;
 }
+}
+
+$select_pro = "SELECT username, user_image FROM user_table";
+$re_pro = mysqli_query($conn,$select_pro);
+while($row = mysqli_fetch_assoc($re_pro)){
+$user = $row['username'];
+$u_img = $row['user_image'];
+}
+$p_id = $_GET['proedit'];
+$update_pro = "SELECT * FROM product_tb WHERE product_id=$p_id";
+$up_re_pro = mysqli_query($conn,$update_pro);
+while($row = mysqli_fetch_assoc($up_re_pro)){
+  $p_name = $row['product_name'];
+  $p_details = $row['product_detail'];
+  $p_select = $row['brad_id'];
+  $p_img = $row['product_img'];
+}
+
 sess();
-$sql = "SELECT product_id, product_name, product_detail, product_img, date_time FROM product_tb";
-   $result = mysqli_query($conn,$sql);
-    $pro_id = "";
-    $pro_name = "";
-    $pro_detail ="";
-    $pro_img = "";
-    $date_time = "";
-   if(mysqli_num_rows($result) > 0){
-      while($row = mysqli_fetch_assoc($result)){
-        $pro_id = $row['product_id'];
-        $pro_name = $row['product_name'];
-        $pro_detail = $row['product_detail'];
-        $pro_img = $row['product_img'];
-        $date_time = $row['date_time'];
-      }
-   }else{
-      echo '<script type="text/javascript">window.open("login.php", _self)</script>';
-   }
 loginFun();
+updateProFun();
 ?>
 
 <!DOCTYPE html>
@@ -173,7 +173,6 @@ loginFun();
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
-
             <!-- Dashboard -->
             <li class="menu-item active">
               <a href="admin-dashboard.php" class="menu-link">
@@ -183,7 +182,7 @@ loginFun();
             </li>
 
             <!-- Category -->
-            <li class="menu-item active">
+          <li class="menu-item active">
               <a href="admin-cat.php" class="menu-link">
                 <div data-i18n="Analytics">Category</div>
               </a>
@@ -349,158 +348,100 @@ loginFun();
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
-<?php
-        $user_id = $_SESSION['id'];
-        $select_pro = "SELECT user_id, username, user_image FROM user_table WHERE user_id='$user_id'";
-        $re_pro = mysqli_query($conn,$select_pro);
-        while($row = mysqli_fetch_assoc($re_pro)){
-          $user = $row['username'];
-          $u_img = $row['user_image'];
-        };
-    ?> <nav
-            class='layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme'
-            id='layout-navbar'
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
           >
-            <div class='layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none'>
-              <a class='nav-item nav-link px-0 me-xl-4' href='javascript:void(0)'>
-                <i class='bx bx-menu bx-sm'></i>
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
 
-            <div class='navbar-nav-right d-flex align-items-center' id='navbar-collapse'>
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class='navbar-nav align-items-center'>
-                <div class='nav-item d-flex align-items-center'>
-                  <i class='bx bx-search fs-4 lh-0'></i>
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
                   <input
-                    type='text'
-                    class='form-control border-0 shadow-none'
-                    placeholder='Search...'
-                    aria-label='Search...'
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
                   />
                 </div>
               </div>
               <!-- /Search -->
 
-              <ul class='navbar-nav flex-row align-items-center ms-auto'>
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-                <li class='nav-item lh-1 me-3'>
+                <li class="nav-item lh-1 me-3">
                   <a
-                    class='github-button'
-                    href='https://github.com/themeselection/sneat-html-admin-template-free'
-                    data-icon='octicon-star'
-                    data-size='large'
-                    data-show-count='true'
-                    aria-label='Star themeselection/sneat-html-admin-template-free on GitHub'
+                    class="github-button"
+                    href="https://github.com/themeselection/sneat-html-admin-template-free"
+                    data-icon="octicon-star"
+                    data-size="large"
+                    data-show-count="true"
+                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
                     >Star</a
                   >
                 </li>
 
                 <!-- User -->
-                <li class='nav-item navbar-dropdown dropdown-user dropdown'>
-                  <a class='nav-link dropdown-toggle hide-arrow' href='javascript:void(0);' data-bs-toggle='dropdown'>
-                    <div class='avatar avatar-online'>
-                      <img src='user_img/<?php echo $u_img; ?>' alt class='w-px-40 h-auto rounded-circle' />
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src=<?php echo "user_img/$u_img"; ?> alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
-
-                 <ul class='dropdown-menu dropdown-menu-end'>
+                  <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                      <a class='dropdown-item' href='#'>
-                        <div class='d-flex'>
-                          <div class='flex-shrink-0 me-3'>
-                            <div class='avatar avatar-online'>
-                              <img src='user_img/<?php echo $u_img; ?>' alt class='w-px-40 h-auto rounded-circle' />
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src=<?php echo "user_img/$u_img"; ?> alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
-                          <div class='flex-grow-1'>
-                            <span class='fw-semibold d-block'><?php echo $user; ?></span>
-                            <small class='text-muted'>Admin</small>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block"><?php echo $user; ?></span>
+                            <small class="text-muted">Admin</small>
                           </div>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <div class='dropdown-divider'></div>
+                      <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class='dropdown-item' href='#'>
-                        <i class='bx bx-user me-2'></i>
-                        <span class='align-middle'>My Profile</span>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
                       </a>
                     </li>
                     <li>
-                      <a class='dropdown-item' href='#'>
-                      <i class='bx bx-user me-2'></i>
-                        <span class='align-middle'>Settings</span>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
                       </a>
                     </li>
                     <li>
-                      <a class='dropdown-item' href='#'>
-                        <span class='d-flex align-items-center align-middle'>
-                          <i class='flex-shrink-0 bx bx-credit-card me-2'></i>
-                          <span class='flex-grow-1 align-middle'>Billing</span>
-                          <span class='flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20'>4</span>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
                         </span>
                       </a>
                     </li>
                     <li>
-                      <div class='dropdown-divider'></div>
+                      <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class='dropdown-item' href='logout.php'>
-                        <i class='bx bx-power-off me-2'></i>
-                        <span class='align-middle'>Log Out</span>
-                      </a>
-                    </li>
-                  </ul>
-                  <ul class='dropdown-menu dropdown-menu-end'>
-                    <li>
-                      <a class='dropdown-item' href='#'>
-                        <div class='d-flex'>
-                          <div class='flex-shrink-0 me-3'>
-                            <div class='avatar avatar-online'>
-                              <img src='./assets/img/avatars/1.png' alt class='w-px-40 h-auto rounded-circle' />
-                            </div>
-                          </div>
-                          <div class='flex-grow-1'>
-                            <span class='fw-semibold d-block'>John Doe</span>
-                            <small class='text-muted'>Admin</small>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <div class='dropdown-divider'></div>
-                    </li>
-                    <li>
-                      <a class='dropdown-item' href='#'>
-                        <i class='bx bx-user me-2'></i>
-                        <span class='align-middle'>My Profile</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class='dropdown-item' href='#'>
-                        <i class='bx bx-cog me-2'></i>
-                        <span class='align-middle'>Settings</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class='dropdown-item' href='#'>
-                        <span class='d-flex align-items-center align-middle'>
-                          <i class='flex-shrink-0 bx bx-credit-card me-2'></i>
-                          <span class='flex-grow-1 align-middle'>Billing</span>
-                          <span class='flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20'>4</span>
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class='dropdown-divider'></div>
-                    </li>
-                    <li>
-                      <a class='dropdown-item' href='logout.php'>
-                        <i class='bx bx-power-off me-2'></i>
-                        <span class='align-middle'>Log Out</span>
+                      <a class="dropdown-item" href="auth-login-basic.html">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Log Out</span>
                       </a>
                     </li>
                   </ul>
@@ -546,65 +487,112 @@ loginFun();
                     </div>
                   </div>
                 </div>
-              <!-- Basic Bootstrap Table -->
-              <div class="card col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
-                <h5 class="card-header">Product Bougth</h5>
-                <h5 class="card-header"><?php delFun() ?></h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>S/N</th>
-                        <th>Product Name</th>
-                        <th>Product Image</th>
-                        <th>Product Details</th>
-                        <th>Action</th>
-                        <th>Date</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $pro_id; ?></strong></td>
-                        <td><?php echo $pro_name; ?></td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="./user_img/<?php echo $pro_img; ?>" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1"><?php echo $pro_detail; ?></span></td>
-                        <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="http://localhost/chuksfolder/update-admin-product.php?proedit=<?php echo $pro_id; ?>"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="http://localhost/chuksfolder/admin-dashboard.php?prodelete=<?php echo $pro_id; ?>"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
+              <!-- Basic Layout & Basic with Icons -->
+              <div class="row">
+                <!-- Basic with Icons -->
+                <div class="col-xxl">
+                  <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mb-0">Enter Items</h5>
+                      <small class="text-muted float-end">Merged input group</small>
+                    </div>
+                    <div class="card-body">
+                      <form method="post" enctype="multipart/form-data">
+                        <div class="row mb-3">
+                        <input
+                                type="hidden"
+                                name="p-id"
+                                value="<?php echo $p_id; ?>"
+                                aria-label="John Doe"
+                                aria-describedby="basic-icon-default-fullname2"
+                              />
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Product Name</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class="bx bx-user"></i
+                              ></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basic-icon-default-fullname"
+                                name="p-name"
+                                placeholder="<?php echo $p_name; ?>"
+                                aria-label="John Doe"
+                                aria-describedby="basic-icon-default-fullname2"
+                              />
                             </div>
                           </div>
-                        </td>
-                        <td><?php echo $date_time ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Product Image</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class="bx bx-user"></i
+                              ></span>
+                              <input
+                                type="file"
+                                class="form-control"
+                                id="p-img"
+                                name="p-img"
+                                placeholder="<?php echo $p_img; ?>"
+                                aria-describedby="basic-icon-default-fullname2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Product Details</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class="bx bx-user"></i
+                              ></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basic-icon-default-fullname"
+                                name="p-details"
+                                placeholder="<?php echo $p_details; ?>"
+                                aria-label="John Doe"
+                                aria-describedby="basic-icon-default-fullname2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Brand</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                            <select name="p-select" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                              <option selected>Choose A Brand</option>
+                              <?php
+                                $select_product = "SELECT brand_id, brand_name FROM brand_tb";
+                                $qu_product = mysqli_query($conn,$select_product);
+                                while($row = mysqli_fetch_array($qu_product)){
+                                $pro_id = $row['brand_id'];
+                                $pro_name = $row['brand_name'];
+                                echo' <option value="'.$pro_id.'">'.$pro_name.'</ option>';
+                            }
+                          ?>
+                            </select>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="row justify-content-end">
+                          <div class="col-sm-10">
+                            <button type="submit" name="p-sub" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
             <!-- / Content -->
-              <!--/ Basic Bootstrap Table -->
     <!-- / Layout wrapper -->
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">

@@ -17,16 +17,9 @@ $user = $row['username'];
 $u_img = $row['user_image'];
 }
 
-$select_brand = "SELECT category_id, category_name FROM category_table";
-$qu_brand = mysqli_query($conn,$select_brand);
-while($row = mysqli_fetch_assoc($qu_brand )){
-$cat_id = $row['category_id'];
-$cat_name = $row['category_name'];
-}
 
 sess();
 loginFun();
-brandFun();
 ?>
 
 <!DOCTYPE html>
@@ -173,7 +166,7 @@ brandFun();
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="dashboard.php" class="menu-link">
+              <a href="admin-dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -492,6 +485,7 @@ brandFun();
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
                       <h5 class="mb-0">Basic with Icons</h5>
+                      <h5 class="mb-0"><?php brandFun(); ?></h5>
                       <small class="text-muted float-end">Merged input group</small>
                     </div>
                     <div class="card-body">
@@ -521,7 +515,13 @@ brandFun();
                             <div class="input-group input-group-merge">
                         <select name="brand-select" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
                           <option selected>Open this select menu</option>
-                          <option value="<?php echo $cat_id; ?>"><?php echo $cat_name; ?></option>
+                          <?php
+                            $select_brand = "SELECT category_id, category_name FROM category_table";
+                            $qu_brand = mysqli_query($conn,$select_brand);
+                            while($row = mysqli_fetch_array($qu_brand )){
+                                echo' <option value="'.$row['category_id'].'">'.$row['category_name'].'</ option>';
+                          }
+                          ?>
                         </select>
                             </div>
                           </div>

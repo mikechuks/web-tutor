@@ -317,7 +317,8 @@ loginFun();
         while($row = mysqli_fetch_assoc($re_pro)){
           $user = $row['username'];
           $u_img = $row['user_image'];
-          echo" <nav
+        };
+    ?><nav
             class='layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme'
             id='layout-navbar'
           >
@@ -360,7 +361,7 @@ loginFun();
                 <li class='nav-item navbar-dropdown dropdown-user dropdown'>
                   <a class='nav-link dropdown-toggle hide-arrow' href='javascript:void(0);' data-bs-toggle='dropdown'>
                     <div class='avatar avatar-online'>
-                      <img src='user_img/$u_img' alt class='w-px-40 h-auto rounded-circle' />
+                      <img src='user_img/<?php echo $u_img ?>' alt class='w-px-40 h-auto rounded-circle' />
                     </div>
                   </a>
 
@@ -370,11 +371,11 @@ loginFun();
                         <div class='d-flex'>
                           <div class='flex-shrink-0 me-3'>
                             <div class='avatar avatar-online'>
-                              <img src='user_img/$u_img' alt class='w-px-40 h-auto rounded-circle' />
+                              <img src='user_img/<?php echo $u_img ?>' alt class='w-px-40 h-auto rounded-circle' />
                             </div>
                           </div>
                           <div class='flex-grow-1'>
-                            <span class='fw-semibold d-block'>$user</span>
+                            <span class='fw-semibold d-block'><?php echo $user ?></span>
                             <small class='text-muted'>Admin</small>
                           </div>
                         </div>
@@ -469,9 +470,7 @@ loginFun();
               </ul>
             </div>
           </nav>
-          ";
-        };
-    ?>
+
           <!-- / Navbar -->
 
           <!-- Content wrapper -->

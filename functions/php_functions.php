@@ -43,7 +43,7 @@ if(isset($_POST['brand-sub'])){
    mysqli_close($conn);
 
 		if($sql){
-			echo "<script>alert('You have succeful created a brand name')</script>";
+			echo "Record Submitted Successfully";
 		}else{
 			echo "<script>alert('Brand name is not successfull')</script>";
 		}
@@ -95,5 +95,42 @@ function proFun(){
    }else{
       echo '<script type="text/javascript">window.open("admin-product.php", _self)</script>';
    }
+}
+function delFun(){
+   global $conn;
+   if(isset($_GET['prodelete'])){
+   $del_id = $_GET['prodelete'];
+   $del_pro = "DELETE FROM product_tb WHERE product_id=$del_id";
+   $re_pro = mysqli_query($conn,$del_pro);
+      if($del_id == "") {
+         echo "Records are Empty";
+      }elseif($re_pro){
+         echo "Record Deleted Successfully";
+      }else{
+         echo "Error Deleting Record"; 
+      }
+}
+}
+function updateProFun(){
+   global $conn;
+   if(isset($_POST['p-sub'])){
+      $p_id = $_POST['p-id'];
+      $p_name = $_POST['p-name'];
+      $p_details = $_POST['p-details'];
+      $p_select = $_POST['p-select'];
+      $p_img = $_FILES['p-img']['name'];
+      $p_img_temp = $_FILES['p-img']['tmp_name'];
+       
+      move_uploaded_file($p_img_temp,"user_img/$p_img");
+      $sql = mysqli_query($conn, "UPDATE product_tb SET product_id='$p_id', product_name='$p_name', product_img='$p_img', product_detail='$p_details', brad_id='$p_select' WHERE product_id=$p_id");
+   
+         if($sql){
+            echo "<script>alert('You have successfully Updateed a Product')</script>";
+         }else{
+            echo "<script>alert('Product name is not successfull')</script>";
+         }
+         }else{
+            echo '<script type="text/javascript">window.open("admin-product.php", _self)</script>';
+         }
 }
 ?>

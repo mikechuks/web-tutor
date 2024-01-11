@@ -17,13 +17,6 @@ $user = $row['username'];
 $u_img = $row['user_image'];
 }
 
-$select_product = "SELECT brand_id, brand_name FROM brand_tb";
-$qu_product = mysqli_query($conn,$select_product);
-while($row = mysqli_fetch_assoc($qu_product)){
-$pro_id = $row['brand_id'];
-$pro_name = $row['brand_name'];
-}
-
 sess();
 loginFun();
 proFun();
@@ -173,7 +166,7 @@ proFun();
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="dashboard.php" class="menu-link">
+              <a href="admin-dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -557,7 +550,15 @@ proFun();
                             <div class="input-group input-group-merge">
                             <select name="p-select" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
                               <option selected>Choose A Brand</option>
-                              <option value="<?php echo $pro_id; ?>"><?php echo $pro_name; ?></option>
+                              <?php
+                                $select_product = "SELECT brand_id, brand_name FROM brand_tb";
+                                $qu_product = mysqli_query($conn,$select_product);
+                                while($row = mysqli_fetch_array($qu_product)){
+                                $pro_id = $row['brand_id'];
+                                $pro_name = $row['brand_name'];
+                                echo' <option value="'.$pro_id.'">'.$pro_name.'</ option>';
+                            }
+                          ?>
                             </select>
                           </div>
                         </div>
