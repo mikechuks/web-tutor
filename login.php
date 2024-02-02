@@ -2,8 +2,7 @@
  include("config.php");
  include("./functions/php_functions.php");
 
- loginFun()
-
+ loginFun();
 ?>
 <!-- /*
 * Bootstrap 5

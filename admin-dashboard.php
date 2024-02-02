@@ -10,13 +10,14 @@ function sess(){
   }
 }
 sess();
-$sql = "SELECT product_id, product_name, product_detail, product_img, date_time FROM product_tb";
-   $result = mysqli_query($conn,$sql);
+
     $pro_id = "";
     $pro_name = "";
     $pro_detail ="";
     $pro_img = "";
     $date_time = "";
+    $sql = "SELECT product_id, product_name, product_detail, product_img, date_time FROM product_tb";
+    $result = mysqli_query($conn,$sql);
    if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_assoc($result)){
         $pro_id = $row['product_id'];
@@ -203,144 +204,56 @@ loginFun();
               </a>
             </li>
             <!-- Bags -->
+            <?php
+            // Retrieve Main Menu items
+              $mainMenuSql = "SELECT category_id, category_name FROM category_table";
+              $mainMenuResult = $conn->query($mainMenuSql);
+
+              $mainMenuItems = array();
+
+              if ($mainMenuResult->num_rows > 0) {
+                  while ($row = $mainMenuResult->fetch_assoc()) {
+                      $mainMenuItems[] = $row;
+                  }
+              }
+
+              // Retrieve Submenu items for each Main Menu item
+              $submenuItems = array();
+
+              foreach ($mainMenuItems as $menuItem) {
+                  $submenuSql = "SELECT brand_id, brand_name,brand_link,cat_id FROM brand_tb WHERE cat_id = " . $menuItem['category_id'];
+                  $submenuResult = $conn->query($submenuSql);
+
+                  if ($submenuResult->num_rows > 0) {
+                      $submenuItems[$menuItem['category_id']] = $submenuResult->fetch_all(MYSQLI_ASSOC);
+                  }
+              }
+              ?>
+            <?php foreach ($mainMenuItems as $mainMenuItem): ?>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Bags</div>
+                <div data-i18n="Layouts"><?= $mainMenuItem['category_name']; ?></div>
               </a>
 
               <ul class="menu-sub">
+              <?php foreach ($submenuItems[$mainMenuItem['category_id']] as $submenuItem): ?>
                 <li class="menu-item">
                   <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
+                    <div data-i18n="Without menu">
+                      <?php
+                      if($submenuItem['brand_name']){
+                        echo $submenuItem['brand_name'];
+                      }else{
+                        echo "No Item Yet";
+                      }
+                      ?>
+                    </div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
+              <?php endforeach; ?>
               </ul>
-            </li>
-            <!-- Shoes -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Shoes</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-             <!-- Shirt -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Shirts</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- Trousers -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Trousers</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
-              </ul>
+              <?php endforeach; ?>
             </li>
           </ul>
         </aside>

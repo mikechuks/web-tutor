@@ -3,8 +3,8 @@ session_start();
 function loginFun(){
    global $conn;
 if(isset($_POST['user_sub'])){
-   $user_username = $_POST['username'];
-   $user_pass = $_POST['pass'];
+   $user_username = mysqli_real_escape_string($conn, $_POST['username']);
+   $user_pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
    $sql = "SELECT user_id, username, user_password, user_image, status FROM user_table WHERE username='$user_username' AND user_password='$user_pass'";
    $result = mysqli_query($conn,$sql);
@@ -33,8 +33,8 @@ if(isset($_POST['user_sub'])){
 function brandFun(){
    global $conn;
 if(isset($_POST['brand-sub'])){
-   $brand_name = $_POST['brand-name'];
-   $brand_select = $_POST['brand-select'];
+   $brand_name = mysqli_real_escape_string($conn, $_POST['brand-name']);
+   $brand_select = mysqli_real_escape_string($conn, $_POST['brand-select']);
 
    $sql = mysqli_prepare($conn, "INSERT INTO brand_tb(brand_name,cat_id)VALUES(?, ?)");
    mysqli_stmt_bind_param($sql, "si",$brand_name,$brand_select);
@@ -47,14 +47,14 @@ if(isset($_POST['brand-sub'])){
 		}else{
 			echo "<script>alert('Brand name is not successfull')</script>";
 		}
-}else{
-   echo '<script type="text/javascript">window.open("admin-brand.php", _self)</script>';
+      }else{
+         echo '<script type="text/javascript">window.open("admin-brand.php", _self)</script>';
 }
 }
 function categoryFun(){
    global $conn;
 if(isset($_POST['cat-sub'])){
-   $cat_name = $_POST['cat-name'];
+   $cat_name = mysqli_real_escape_string($conn, $_POST['cat-name']);
 
    $sql = mysqli_prepare($conn, "INSERT INTO category_table(category_name)VALUES( ?)");
    mysqli_stmt_bind_param($sql, "s",$cat_name,);
@@ -74,9 +74,9 @@ if(isset($_POST['cat-sub'])){
 function proFun(){
    global $conn;
    if(isset($_POST['p-sub'])){
-      $p_name = $_POST['p-name'];
-      $p_details = $_POST['p-details'];
-      $p_select = $_POST['p-select'];
+      $p_name = mysqli_real_escape_string($conn, $_POST['p-name']);
+      $p_details = mysqli_real_escape_string($conn, $_POST['p-details']);
+      $p_select = mysqli_real_escape_string($conn, $_POST['p-select']);
       $p_img = $_FILES['p-img']['name'];
       $p_img_temp = $_FILES['p-img']['tmp_name'];
        
@@ -114,10 +114,10 @@ function delFun(){
 function updateProFun(){
    global $conn;
    if(isset($_POST['p-sub'])){
-      $p_id = $_POST['p-id'];
-      $p_name = $_POST['p-name'];
-      $p_details = $_POST['p-details'];
-      $p_select = $_POST['p-select'];
+      $p_id = mysqli_real_escape_string($conn, $_POST['p-id']);
+      $p_name = mysqli_real_escape_string($conn, $_POST['p-name']);
+      $p_details = mysqli_real_escape_string($conn, $_POST['p-details']);
+      $p_select = mysqli_real_escape_string($conn, $_POST['p-select']);
       $p_img = $_FILES['p-img']['name'];
       $p_img_temp = $_FILES['p-img']['tmp_name'];
        
@@ -132,5 +132,8 @@ function updateProFun(){
          }else{
             echo '<script type="text/javascript">window.open("admin-product.php", _self)</script>';
          }
+}
+function menuOne(){
+
 }
 ?>

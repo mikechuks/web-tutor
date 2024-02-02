@@ -30,7 +30,7 @@
 		if($sql){
 			echo "<script>alert('You have Successfully Registered')</script>";
 		}else{
-			die(mysqli_connect_error($conn));
+			echo "<script>alert('Invalid detailes')</script>";
 		}
 	}
  }
