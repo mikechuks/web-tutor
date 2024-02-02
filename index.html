@@ -3,54 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script type="text/javascript" src="index.js"></script>
     <title>Javascript</title>
+    <script>
+        //document.write("My name is Mr Michael");
+    </script>
 </head>
 <body>
     
 
 <script>
-        // Javascript Variables
-        //  var a = 34;
-       // document.write(a);
-       // alert(a);
+    //Display Possibilities
+    //document.write("My name is Mr Michael");
+    //alert("My name is Mr Michael");
+    //console.log("My name is Mr Michael");
 
-        //Data types
-       // var carName = "Honda";
-       // var a = true;
-       // var A = 34;
-       // document.write(typeof carName + "<br/>" + typeof a  + "<br/>" + typeof A);
+    //Case Censitivity
+    //var NAME = "destiny";
+    //var name = "mike";
+    //document.write(name + " " +NAME);
 
-        // Used for displaying datas
-//      document.write("My name is Mr Michael");
-//      alert("My name is Mr Mike");
-//      console.log("My name is Mr Mike");
+    //Data Types
+    //var name = "My name is Mr Michael";
+    //document.write(typeof name + "<br>");
+    //var number = 2024;
+    //document.write(typeof number + "<br>");
+    //var bollen = false;
+    //document.write(typeof bollen + "<br>");
+    //document.write(name + " " + number + " " + bollen);
 
-//class work: 
-//create a variable and assign it a value called Ada is 24 years old, 
-//the 24 should have its own variable and display this on your screen browser..
+    //Object Data Type
+    //var person = {firstName:"Jhon", lastName:"Doe", age:50, eyeColor:"blue"};
+    //    document.write(person.firstName + " " +person.lastName + " " +person.age + " " +person.eyeColor + " "+ //typeof person +"<br>");
 
-//        var a = "Ada is ";
-//        var b = 24;
-//        var c = "years old";
-//        document.write(a + b + c);
+    //Null Data Type
+    //var person = null;
+    //document.write(typeof person + "<br>");
 
+    //Undefined Data Type
+    //var person = undefined;
+    //document.write(typeof person);
 
-//Object Data Type
-//var person = {firstName:"Jhon", lastName:"Doe", age:50, eyeColor:"blue"}
-//       document.write(person.firstName + " " +person.lastName + " " +person.age + " " +person.eyeColor);
-
-//Null Data Type
-//var person = null;
-//document.write(typeof person);
-
-//Undefined Data Type
-//var person = undefined;
-//document.write(typeof person);
+    //Global and local Variable
+   // var myVar = "global"; // Declare a global variable
+    //function checkscope() {
+    //var myVar = "local"; // Declare a local variable
+    //document.write(myVar);
+    //}
+    //checkscope();
 
 //Javascript Operators
 
-//  + = Addition
+//Aritmethic Opetrator
+ // + = Addition
 // - = Subtraction
 // * = Multiplication
 // / = Division
@@ -60,35 +65,21 @@
 
 //var x = 5;
 //var y = 2;
-//var z = x++;
-//document.write(--x);
-
-//Assignment Operators
-// = 
-// +=
-// -=
-// *=
-//  /=
-// %=
-
-//var x = 5;
-//var z = 2;
-//z %= 5; 
-//document.write(z); 
+//var z = x + y;
+//document.write(--z);
 
  //Comparison Operators
- // ==
- // ===
- // !=
- // !==
- // >
- // <
- // >=
- // <=
+ // == Equal
+ // === Identical
+ // != Not Equal
+ // !== Not Identical
+ // > Greater Than
+ // < Less Than
+ // >= Greater Than or Equal to 
+ // <=  Less Than or Equal to
 
  //var x = 5;
  //var y = 2;
-
  //document.write(x <= y);
 
 //Logical Operator
@@ -96,19 +87,170 @@
 // || = Or
 // ! = Not
 
-//var x = 5;
-//var y = 2;
-//var z = !(x == y);
-//document.write(z);
+// var x = 5;
+// var y = 2;
+// var z = !(x == y);
+// document.write(z);
+
+//Assignment Operators
+// = 
+// +=
+// -=
+// *=
+// /=
+// %=
+
+// //var x = 5;
+// var z = 5;
+// //var z = z + 5
+// var a = z %= 2; 
+// document.write(z); 
+
+//Conditional Operator
+// var a = 10;
+// var b = 3;
+// result = (a > b) ? 100 : 200;
+// document.write(result);
+
+//Javascript Constant
+// function abc() {
+// const abc = 15;
+// document.write(abc);
+// }
+// abc()
 
 //Function
-//function myCar(firstname,lastname){
 
-///    return firstname / lastname;
+// function multiply(first, last){
+// var full;
+// full = first * last;
+// return full;
+// }
+// alert(multiply(10, 3))
 
-//}
-//var a = myCar(20,10)
-//document.write(a);
+// function myCar(firstname,lastname){
+
+//     return firstname / lastname;
+// }
+// var a = myCar(20,10)
+// document.write(a);
+
+// If, Else, Else If statements
+// var check = 1;
+// if(check < 10) {
+// window.alert("Okocha");
+// }
+
+// var check = 1;
+// if (check > 10) {
+// window.alert("Okocha");
+// }else{
+// window.alert("Kanu Nwankwo");
+// }
+
+// var check = 12;
+// if (check > 10) {
+// window.alert("Okocha");
+// }else if(check > 10){
+// window.alert("Kanu Nwankwo");
+// }else{
+// window.alert("Jordan");
+// }
+
+//Switch
+// var check = 9;
+// switch (check) {
+// case 0:
+// window.alert("case 0");
+// break;
+// case 5:
+// window.alert("case 5");
+// break;
+// case 9:
+// window.alert("case 9");
+// break;
+// default:
+// window.alert("default");
+// } 
+
+//forloop
+// for (var counts = 0; counts <= 5; counts++) {
+//     window.alert(counts);
+// }
+
+//for in loop
+// var person = {name:"John", surname:"Doe", age:25};
+// var i;
+// for (i in person) {
+// window.alert(person[i]);
+// }
+
+//while loop
+// var i=7;
+// while (i <= 10) {
+// window.alert(i);
+// i++;
+// }
+
+//Do while loop
+// var i=7;
+// do {
+// window.alert(i);
+// i++;
+// }
+// while (i < 10);
+
+//Break
+// var x = 1;
+// while (x < 20){
+// if (x == 5){
+// break; // breaks out of loop completely
+// }
+// console.log(x);
+// x++;
+// }
+
+//Continue
+// var x = 1;
+// while (x < 7){
+// if (x == 5){
+// continue; // breaks out of loop completely
+// }
+// console.log(x);
+// x++;
+// }
+
+//Array 
+// var nums = [1,2,3];
+// //document.write(nums[1]);
+// nums[1] = 10;
+// document.write(nums[1]);
+
+var cars = ["Saab", "Volvo", "BMW"];
+var len = cars.length;
+
+for(var a = 0; a < len; a++){
+    document.write(cars[a]);
+}
+
+//Class Work
+//Declare a function with paramenter one "I" paramenter two "am" amd paramenter three "in" and parameter four "digitals". Display i am in digital on your browser
+
+//Declare an array with values of "HTML", "CSS", "JAVASCIPT", "PHP". Use the while loop to display them on your screen
+
+//Declare a variable with values of 20 and 10.. Use the if and else statement to check 20 is greater than 10.. display 20 is greater than 10 on your browser screen
+
+
+//Class work 
+//Using Function, write your if and else statement inside your function to check if 10 is greater than 15 and 10 less than i5.. 
+//Class Work
+//Using Function, Declear three variables inside your function. The first var should be "Ada is", secound is "24", third is "years old"... Display "Ada is 24 years old" using concatenation...
+
+//class work: 
+//create a variable and assign it a value called Ada is 24 years old, 
+//the 24 should have its own variable and display this on your screen browser..
+
+
 
 // Class Work
 // Using fuction declear two variable "i am" and "in digital academy",

@@ -1,1 +1,1 @@
-document.write("My name is Mr Michael");
+//document.write("My name is Mr Michael");

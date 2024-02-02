@@ -37,40 +37,61 @@
             <input type="submit" class="site-btn"  onClick="validateForm(event)" value="submit">
         </form>
      </div>
-    </div>
+    </div> 
     <script>
+        // function validateForm(event){
+        //     event.preventDefault();
+        //     var name = document.getElementById('name').value;
+        //     var email = document.getElementById('email').value;
+        //     var password = document.getElementById('password').value;
+        //     var selectItem = document.getElementById('selectItem').value;
+        //     var displayMessage = document.getElementById('display-message');
+        //     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/;
+        //     //var alphanumeric = replace(/[^a-zA-Z0-9\s]/g, '');
+        //     var alphanumericspecial = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?\\/`-]+$/;
+        //     displayMessage.innerHTML = "";
+
+
+        //     if(name == ""){
+        //         displayMessage.innerHTML += 'Please enter a name';
+        //     }else if(email == ""){
+        //         displayMessage.innerHTML += "Please enter an email";
+        //     }else if(password == ""){
+        //         displayMessage.innerHTML += 'Please enter a password';
+        //     }else if(selectItem == ""){
+        //         displayMessage.innerHTML += 'Please select a gender';  
+        //     }else if(!email.match(validRegex)){
+        //         displayMessage.innerHTML += 'Please, enter a valid email';                 
+        //     }else if(!password.alphanumericspecial){
+        //         displayMessage.innerHTML += 'input should contain alphabert, number and special characters';    
+        //     }else if(password.length < 6 || password.length > 12){
+        //         displayMessage.innerHTML += 'Please your password should not be Less than six characters or greater than 12 characters';    
+        //     }else{
+        //         displayMessage.innerHTML += 'Your input has been submitted successfully';         
+        //     }
+        // }
+
         function validateForm(event){
             event.preventDefault();
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var selectItem = document.getElementById('selectItem').value;
-            var displayMessage = document.getElementById('display-message');
-            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/;
-            //var alphanumeric = replace(/[^a-zA-Z0-9\s]/g, '');
-            var alphanumericspecial = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?\\/`-]+$/;
-            displayMessage.innerHTML = "";
-
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+            var selectItem = document.getElementById("selectItem").value
+            var message = document.getElementById("display-message");
+            message.innerHTML = "";
 
             if(name == ""){
-                displayMessage.innerHTML += 'Please enter a name';
+                message.innerHTML += "Name field is empty";
             }else if(email == ""){
-                displayMessage.innerHTML += "Please enter an email";
-            }else if(password == ""){
-                displayMessage.innerHTML += 'Please enter a password';
+                message.innerHTML += "Email field is empty";      
+            }else if(pass == ""){
+                message.innerHTML += "Password field is empty";
             }else if(selectItem == ""){
-                displayMessage.innerHTML += 'Please select a gender';  
-            }else if(!email.match(validRegex)){
-                displayMessage.innerHTML += 'Please, enter a valid email';                 
-            }else if(!password.alphanumericspecial){
-                displayMessage.innerHTML += 'input should contain alphabert, number and special characters';    
-            }else if(password.length < 6 || password.length > 12){
-                displayMessage.innerHTML += 'Please your password should not be Less than six characters or greater than 12 characters';    
+                message.innerHTML += "No Item Selected";
             }else{
-                displayMessage.innerHTML += 'Your input has been submitted successfully';         
+                message.innerHTML += "Your data is submitted sucessfully";         
             }
         }
-
 //Assignment
 //Create a validation form with document.form on input, select, checkbox and radio button
     </script>
