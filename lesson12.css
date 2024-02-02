@@ -1,0 +1,27 @@
+#box1{
+    width: 250px;
+    height: 250px;
+    background: red;
+    font-size: 225px;
+    text-align: center;
+
+    animation: mySlide;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+}
+#box1:hover{
+    /* animation: mySlide;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    animation-timing-function: linear; */
+}
+
+@keyframes mySlide{
+    from{margin-left: 100%;}
+    to{margin-left: 0%;}
+}
